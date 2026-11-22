@@ -21,7 +21,8 @@ You need JDK 21. From the project folder:
 
 ```
 ./mvnw spring-boot:run          # macOS / Linux
-mvnw.cmd spring-boot:run        # Windows
+mvnw.cmd spring-boot:run        # Windows Command Prompt
+.\mvnw.cmd spring-boot:run      # Windows PowerShell
 ```
 
 On macOS or Linux, if `./mvnw` says "permission denied", run `chmod +x mvnw` first (or use `sh mvnw spring-boot:run`).
