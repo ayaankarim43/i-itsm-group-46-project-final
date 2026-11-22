@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head><meta charset="UTF-8"><title>Login</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body class="center">
+<main class="box">
+    <div class="auth-brand">I-ITSM</div>
+
+    <h2>Welcome back</h2>
+
+    <p class="auth-subtitle">
+    Sign in to manage your IT service requests.
+    </p>
+    <p class="msg err"
+        th:if="${param.error != null
+               and param.error[0] == 'unregistered'}">
+
+        This email address is not registered.
+
+    </p>
+
+    <p class="msg err"
+        th:if="${param.error != null
+               and param.error[0] == 'invalid'}">
+
+        Incorrect password.
+
+    </p>
+    <p class="msg ok" th:if="${param.logout}">You have been logged out</p>
+    <p class="msg ok" th:if="${ok}" th:text="${ok}"></p>
+    <form method="post" th:action="@{/login}">
+        <label>Email <input name="username" type="email" required autofocus></label>
+        <label>Password <input name="password" type="password" required></label>
+        <button type="submit">Log in</button>
+    </form>
+    <p>New employee? <a th:href="@{/register}">Register</a></p>
+    <p>
+        <a th:href="@{/forgot-password}">
+            Forgot password?
+        </a>
+    </p>
+</main>
+</body>
+</html>
